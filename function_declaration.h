@@ -1,3 +1,6 @@
+#ifndef FUNCTION_DECLARATION_H
+#define FUNCTION_DECLARATION_H
+
 /*
 * This is a header file, where we declare our functions.
 * We can then import these declarations using the #include pre-processor directive.
@@ -5,23 +8,26 @@
 * Basically showing the module's interface. 
 */
 
+// Function declarations
+
+// swap.c
 int swap(int* left, int* right);
-
-// Function to demonstrate the use of pointers
 void swap_example();
-
 int swap_int(int left, int right);
 
+// address_structure.c
 void address_example();
 
+// struct_pointers.c
 void dynamic_person_example();
-
 void dynamic_person_casting();
 
-// function declaration
+// printlist.c
 void printlist(char* templist[]);
-
-// and another one, we'll get back to it later
 void printlist2(char* const templist[]);
-
 void demo_printlist(void);
+
+// bits_and_bytes.c
+int main_bits_and_bytes();
+
+#endif // FUNCTION_DECLARATION_H

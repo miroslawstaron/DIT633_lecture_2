@@ -1,8 +1,12 @@
-// here we include the declarations
-// in the strict sense, this is not needed in this program
-// as we only have one function
-// but if we had many, then we do not have to worry about 
-// keeping track which function is declared where
+/*
+* Project: Lecture 2 Demonstrations
+* File: swap.c
+* Description: Contains functions to demonstrate swapping values and pointers.
+* 
+* (c) 2021, Miroslaw Staron, miroslaw.staron@gu.se
+*/
+
+
 #include "function_declaration.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,23 +34,26 @@ int swap_int(int left, int right)
 * Note! both parameters are pointers
 * Otherwise the swap will not work!
 */
-int swap(int *left, int* right)
+int swap(int *left, int *right)
 {
-	unsigned char one_byte = 0x10; 
-	one_byte++;
+    // Increment a sample byte value
+    unsigned char one_byte = 0x10; 
+    one_byte++;
 
-	int temp;	// temporary variable
+    // Temporary variable for swapping
+    int temp;
 
-	printf("Address value: %lu\n", (unsigned long)left);
-	printf("Value of left is %d\n", (int)*left);
+    // Print the address and value of the left variable
+    printf("Address value: %p\n", (void *)left);
+    printf("Value of left is %d\n", *left);
 
-	// here is where the swapping takes place
-	temp = *left;
-	*left = *right;
-	*right = temp;
+    // Perform the swap
+    temp = *left;
+    *left = *right;
+    *right = temp;
 
-	// we return the left variable just for fun
-	return *left;
+    // Return the left variable's new value
+    return *left;
 }
 
 /*

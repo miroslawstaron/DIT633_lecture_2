@@ -1,13 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "function_declaration.h"
-
-
 /*
-* This program demonstrates the structured and pointers for lecture 2
+* Project: Lecture 2 Demonstrations
+* File: main.c
+* Description: Entry point of the program demonstrating various examples.
 * 
 * (c) 2021, Miroslaw Staron, miroslaw.staron@gu.se
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "function_declaration.h"
 
 // main as the entry point to the program
 int main(int argc, char* argv[])
