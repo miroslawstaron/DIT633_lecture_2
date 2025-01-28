@@ -44,7 +44,7 @@ int swap(int *left, int *right)
     int temp;
 
     // Print the address and value of the left variable
-    printf("Address value: %p\n", (void *)left);
+    printf("Address value: %p\n", left);
     printf("Value of left is %d\n", *left);
 
     // Perform the swap
@@ -68,13 +68,18 @@ void swap_example()
 	int c = a;
 	int d = b;
 
-	swap(&a, &b);
-	// printf("Case 1: a: %d, b: %d\n", a, b);
+	int *pA = &a;
+	int *pB = &b;
+
+	swap(pA, pB);
+	printf("Case 1: a: %d, b: %d\n", a, b);
 
 	char *pX = malloc(10 * sizeof(char)); 
 	
 	printf("The value of pX is: %lu\n", (unsigned long)pX);
-	printf("The value of pX is: %p\n", (char *)pX);
+
+	printf("The value of pX is: %p\n", pX);
+	
 	
 	
 	// *pX = (char*)malloc(10 * sizeof(char));
@@ -116,5 +121,7 @@ void swap_example()
 	int lSwap = swap(&c, &d);
 
 	printf("Left: %d, right: %d\n", a, b);
+
+	free(pX);
 }
 

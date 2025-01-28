@@ -20,11 +20,11 @@ int main(int argc, char* argv[])
 
 	// swap_example();
 
-	// demo_printlist();
+	demo_printlist();
 
 	// address_example();
 
-	dynamic_person_example();
+	// dynamic_person_example();
 
 	// dynamic_person_casting();
 

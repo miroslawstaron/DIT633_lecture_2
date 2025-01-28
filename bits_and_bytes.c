@@ -103,7 +103,7 @@ int main_bits_and_bytes(void) {
     // this means that bit 3 should be set to 1
     // and bit number 5 should be set to 1
     // so, let's check if that is the case
-    unsigned char another_byte = 0b00010100;
+    byte another_byte = 0b00010100;
     
 	// unsigned char another_byte = 0b01000010;
 
@@ -127,23 +127,27 @@ int main_bits_and_bytes(void) {
         printf("3: Comparing a byte to a mask: Both bytes have the same number! \n");
 
     // so, if we can mask a bit, we can also set it, right?
-    unsigned char bit_8_is_set = 0b00000000 | bit8;
+    unsigned char bit_8_is_set = 0b00000011 | bit8;
 
     // let's see what we get:
-    printf("Value of the 8th bit is: %d\n", bit_8_is_set);
+    printf("Value of the 8th bit is: %d\n", (bit_8_is_set & bit8));
+    printf("Value of the bit_8_is_set is: %d\n", bit_8_is_set);
 
     // we can also un-set it == clear it
     // bit8 =  0b1000 0000
     // ~bit8 = 0b0111 1111
     unsigned char bit_8_is_not_set = 0b11111111 & ~bit8;
+    
+
 
     // let's see what we get:
-    printf("Value of the 8th bit cleared is: %d\n", bit_8_is_not_set);
+    printf("Value of the 8th bit cleared is: %d\n", (bit_8_is_not_set & bit8));
+    printf("Value of the bit_8_is_not_set is: %d\n", bit_8_is_not_set);
 
     // Finally, let's shift some bits around in a byte
     // let's say we have number 1
     // let's use hexadecimal notation to make it more interesting
-    byte number_one = bit8 + bit7; // == 0b0000 0001
+    byte number_one = bit1; // == 0b0000 0001
 
     // let's see what we get:
     printf("Value of number_one is: %d\n", number_one);
