@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
 
@@ -45,10 +46,27 @@ void address_example() {
     // since the field street is just a pointer, 
 	// we need to allocate memory for it
     addressInfo.street = (char*) malloc(20 * sizeof(char));
+
+    // print the address
+    printf("Address for the first variable: %p\n", addressInfo.street);
     
     char* str = malloc(20);
+    char* str2 = str;
 
-	free(str);               // free the memory    
+    // print the address
+    printf("Address for the str: %p\n", str);
+
+	free(str);               // free the memory
+    str = NULL;             // set the pointer to NULL
+
+    str = (char *)&address_example; // set the pointer to the address of the function
+
+    // fill str with test "TEST"
+    // strcpy(str, "TEST");
+    printf("Random string: %c\n", str[100]);    
+
+    // print the address again
+    printf("Address for the str after free: %p\n", str);    
 
     // provide first and the last name
 	printf("Please provide the first name #1: ");
@@ -74,23 +92,53 @@ void address_example() {
     
     printf("Street #2: %s\n", aInfo2.street);
 
+    printf("Provide the name of the street 3rd time: ");
+    scanf("%s", aInfo2.street);
+
+    printf("Street #1: %s\n", addressInfo.street);
+    printf("Street #2: %s\n", aInfo2.street);
+
+    // printf("Provide the last name 3rd time: ");
+    // scanf("%s", aInfo2.lname);
+
+    // printf("Last name #1: %s\n", addressInfo.lname);
+    // printf("Last #2: %s\n", aInfo2.lname);
+
+    // print the address where the street is stored
+    printf("Address for the first variable: %p\n", addressInfo.street);
+    printf("Address for the second variable: %p\n", aInfo2.street);
+
     // Let's create the third variable
     // that will point to the same place
     struct address aInfo3 = addressInfo;
 	aInfo3.street = malloc(30 * sizeof(char));
 
     // the name of the street should be this one too
-   printf("Street #3: %s\n", aInfo3.street);
+    printf("Street #3: %s\n", aInfo3.street);
 
     // and what happens if we change the name of the street in one of them?
     puts("Provide the new street for Info 3: ");
-    
     scanf("%s", aInfo3.street);
 
     // and print the result
     printf("Address for the first variable: %s\n", addressInfo.street);
+    printf("Address for the first variable: %p\n", addressInfo.street);
+
     printf("Address for the second variable: %s\n", aInfo2.street);
+    printf("Address for the second variable: %p\n", aInfo2.street);
+
     printf("Address for the third variable: %s\n", aInfo3.street);
+    printf("Address for the third variable: %p\n", aInfo3.street);
+
+    printf("lname for the first variable: %s\n", addressInfo.lname);
+    printf("lname for the second variable: %p\n", addressInfo.lname);
+
+    printf("lname for the second variable: %s\n", aInfo2.lname);
+    printf("lname for the third variable: %p\n", aInfo2.lname);
+
+    printf("lname for the third variable: %s\n", aInfo3.lname);
+    printf("lname for the third variable: %p\n", aInfo3.lname);
+
 
 	free(addressInfo.street);
 	free(aInfo3.street);

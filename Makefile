@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -Wno-unused-parameter -Wno-use-after-free -Wno-unused-variable
 
 # Define the source files
-SRC = main.c struct_pointers.c address_structure.c bits_and_bytes.c swap.c
+SRC = main.c struct_pointers.c address_structure.c bits_and_bytes.c swap.c array_of_pointers.c
 
 # Define the object files (replace .c with .o)
 OBJ = $(SRC:.c=.o)

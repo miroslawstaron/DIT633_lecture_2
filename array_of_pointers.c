@@ -7,6 +7,9 @@
 
 #define MAX_ELEMENTS 4
 
+// a string to be used in the list, printlist2
+char s[] = "Playing tricks with pointers...";
+
 /*
 * Function demonstrating the printlist
 */
@@ -24,7 +27,8 @@ void demo_printlist(void) {
 	printlist2(list);
 
 	// and one more
-	printlist(list);
+	//printlist(list);
+	printf("%s\n", "Before the second call");
 
 	// and the last one
 	printlist2(list);
@@ -34,7 +38,7 @@ void demo_printlist(void) {
 * prints the elements of the list
 * Note! the list is passed as a pointer
 */
-void printlist(char* templist[]) {
+void printlist(char *templist[]) {
 	
 	// in this loop we need the number of elements, 
 	// otherwise we do not know when the elements end
@@ -53,6 +57,7 @@ void printlist(char* templist[]) {
 */
 void printlist2(char* const templist[])
 {
+	
 	// in this loop we need the number of elements, 
 	// otherwise we do not know when the elements end
 	// using \0 is not an option, as we do not know how many strings we have

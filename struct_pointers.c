@@ -6,12 +6,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX 20
+
 // definition of the structure of a person
 // Note! I introduce the hungarian notation here
 // You can find more information about it here: https://en.wikipedia.org/wiki/Hungarian_notation
 typedef struct {
 	int iAge;				// age of the person
-	char strName[20];		// name of the person			
+	char strName[MAX];		// name of the person			
 } sPerson;
 
 typedef struct {
@@ -23,7 +25,7 @@ typedef struct {
 void dynamic_person_example()
 {
 	// declaring the variable
-	sPerson* pPerson; 
+	sPerson* pPerson = NULL; 
 
 	// now, we need to create the space in memory for that person
 	pPerson = malloc(sizeof(sPerson));
@@ -48,7 +50,7 @@ void dynamic_person_example()
 	// but it would not work if we had the name of the person first
 	//
 	// so, it is allowed, but do not use it
-	//scanf("%d", pPerson);
+	// scanf("%d", pPerson);
 
 	// and let's print the person's name		
 	printf("Person's name is: %s, and age: %d\n", pPerson->strName, pPerson->iAge);
@@ -63,14 +65,14 @@ void dynamic_person_example()
 */
 void dynamic_person_casting()
 {
-	sCompletePerson* pPerson1;
-	sPerson* pPerson1ShortVersion;
+	sCompletePerson* pPerson1 = NULL;
+	sPerson* pPerson1ShortVersion = NULL;
 
 	pPerson1 = malloc(sizeof(sCompletePerson));
 
 	// setting the name of the person
 	// we need to use the strcpy as we need to copy between the stack ("Name") and the heap
-	
+
 	strcpy(pPerson1->strName, "Name");
 	strcpy(pPerson1->strAddress, "Johnny's street 12");
 	pPerson1->iAge = 21;
@@ -81,6 +83,8 @@ void dynamic_person_casting()
 	pPerson1ShortVersion = (sPerson*)pPerson1;
 
 	printf("pPersonShortVersion: %s\n", pPerson1ShortVersion->strName);
+
+	// printf("Address field in the short person is: %s\n", pPerson1ShortVersion->strAddress);
 	
 	char* pPointer = &pPerson1ShortVersion->strName[20];
 	
@@ -101,7 +105,8 @@ void dynamic_person_casting()
 
 	// but this is not allowed
 	// because the "common" part of the variable has already been freed
-	printf("Value of the pointer is %lu\n", (unsigned long) pPerson1);
+	printf("Value of the pointer is %p\n", pPerson1);
+	printf("Value of the short pointer is %p\n", pPerson1ShortVersion);
 	
 	printf("pPerson1: %s\n", pPerson1->strName);
 	

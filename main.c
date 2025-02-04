@@ -20,13 +20,13 @@ int main(int argc, char* argv[])
 
 	// swap_example();
 
-	demo_printlist();
+	// demo_printlist();
 
 	// address_example();
 
 	// dynamic_person_example();
 
-	// dynamic_person_casting();
+	dynamic_person_casting();
 
 	// returning the code for OK
 	return result;
